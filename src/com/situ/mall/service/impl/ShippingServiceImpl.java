@@ -32,4 +32,9 @@ public class ShippingServiceImpl implements ShippingService{
 	public Shipping findShippingById(Integer shipping_id) {
 		return shippingDao.findShippingById(shipping_id);
 	}
+
+	@Override
+	public boolean deleteShipping(Integer shippingId) {
+		return shippingDao.deleteShipping(shippingId)>0;
+	}
 }

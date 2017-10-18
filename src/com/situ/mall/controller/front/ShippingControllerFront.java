@@ -36,5 +36,11 @@ public class ShippingControllerFront {
 		Boolean isSuccess = shippingService.addShipping(userId,shipping);
 		return isSuccess;
 	}
+	@RequestMapping("/deleteShipping.shtml")
+	@ResponseBody
+	public Boolean deleteShipping(Integer shippingId) {
+		boolean isSuccess = shippingService.deleteShipping(shippingId);
+		return isSuccess;
+	}
 	
 }

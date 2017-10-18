@@ -12,4 +12,6 @@ public interface ShippingService {
 
 	Shipping findShippingById(Integer integer);
 
+	boolean deleteShipping(Integer shippingId);
+
 }

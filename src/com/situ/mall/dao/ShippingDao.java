@@ -13,4 +13,6 @@ public interface ShippingDao {
 
 	Shipping findShippingById(int shipping_id);
 
+	int deleteShipping(Integer shippingId);
+
 }

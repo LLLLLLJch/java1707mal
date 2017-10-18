@@ -23,7 +23,7 @@
 		type="text/css" />
 
 	<script type="text/javascript" src="${ctx}/resources/js/address.js"></script>
-
+	<script type="text/javascript" src="${ctx}/resources/thirdlib/layer-v3.1.0/layer/layer.js"></script>
 	<script type="text/javascript">
 		function goexist() {
 			var isExist = confirm("你确定要退出吗？");
@@ -53,9 +53,15 @@
 				"receiver_address" : receiver_address
 			}, function(data) {
 				if (data) {
-					alert('添加成功');
+					parent.layer.msg("添加成功");
+					//当你在iframe页面关闭自身时
+					var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+					setTimeout(function(){
+						parent.layer.close(index); //再执行关闭  
+						window.parent.location.reload();//刷新父页面
+					},100);
 				} else {
-					alert("添加失败");
+					layer.msg("添加失败");
 				}
 			}, "json")
 		}  
@@ -123,8 +129,22 @@
 	       };
 			
 	       
-	       function tijiao(){
-	    	   window
+	       function delShipping(shippingId){
+	    	   $.post("${ctx}/getShipping/deleteShipping.shtml", {
+					"shippingId" : shippingId
+				}, function(data) {
+					if (data) {
+						parent.layer.msg("删除成功");
+						//当你在iframe页面关闭自身时
+						var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+						setTimeout(function(){
+							parent.layer.close(index); //再执行关闭  
+							window.parent.location.reload();//刷新父页面
+						},100);
+					} else {
+						layer.msg("删除失败");
+					}
+				}, "json")
 	       }
 	</script>
 </head>
@@ -234,7 +254,7 @@
 							<div class="new-addr-btn">
 								<a href="#">设为默认</a> <span class="new-addr-bar">|</span> <a
 									href="#">编辑</a> <span class="new-addr-bar">|</span> <a
-									href="javascript:void(0);" onclick="delClick(this);">删除</a>
+									href="javascript:void(0);" onclick="delShipping(${shipping.id});">删除</a>
 							</div>
 
 						</li>	
