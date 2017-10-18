@@ -37,4 +37,9 @@ public class UserServiceImpl implements UserService{
 		return userDao.findUserNameByUsrId(user_id);
 	}
 
+	@Override
+	public int findAllUserCount() {
+		return userDao.findAllUserCount();
+	}
+
 }

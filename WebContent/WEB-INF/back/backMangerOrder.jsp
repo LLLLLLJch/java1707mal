@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>INSPINIA | Dashboard</title>
-
+	<link href="${pageContext.request.contextPath}/resources/thirdlib/hadmin/css/animate.css" rel="stylesheet">
     <link href="${ctx}/resources/thirdlib/H+/css/bootstrap.min.css" rel="stylesheet">
     <link href="${ctx}/resources/thirdlib/H+/css/font-awesome.css" rel="stylesheet">
 
@@ -26,7 +26,7 @@
 </head>
 
 <body>
-            <div class="row  border-bottom white-bg dashboard-header">
+            <div class="row  border-bottom white-bg dashboard-header  animated fadeInRight">
 					<!-- 内容区开始 -->
 			<form id="mainForm"  action="" method="post">			
 				<input type="button" value="批量删除" onclick="deleteAll();"/>
@@ -50,7 +50,8 @@
 							<input type="hidden" value="${order.user_id}"/>
 							<td>${order.order_no}</td>
 							<td>${order.payment}</td>
-							<td>${order.create_time}</td>
+							<td><fmt:formatDate value="${order.create_time}"
+										pattern="yyyy-MM-dd hh:mm:ss" /></td>
 							<td><input type="button" value="查看订单详情" onclick="seeOrderDetail('${order.order_no}');"/></td>
 							<td><a href="javascript:delSlideShow(${slideShow.id})">删除</a></td>
 							<td><a href="${ctx}/backgroundCategory/toUpdateCategory.action?id=${category.id}">修改</a></td>

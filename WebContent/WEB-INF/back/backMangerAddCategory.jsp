@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>INSPINIA | Dashboard</title>
-
+	<link href="${pageContext.request.contextPath}/resources/thirdlib/hadmin/css/animate.css" rel="stylesheet">
     <link href="${ctx}/resources/thirdlib/H+/css/bootstrap.min.css" rel="stylesheet">
     <link href="${ctx}/resources/thirdlib/H+/css/font-awesome.css" rel="stylesheet">
 
@@ -26,7 +26,7 @@
 </head>
 
 <body>
-            <div class="row  border-bottom white-bg dashboard-header">
+            <div class="row  border-bottom white-bg dashboard-header  animated fadeInRight">
 				<!-- 内容区开始 -->
 				<input id="btn1" type="button" class="btn btn-primary"
 					onclick="btn1();" value="添加一级分类" />

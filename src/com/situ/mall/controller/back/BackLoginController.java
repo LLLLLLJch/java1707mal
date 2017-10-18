@@ -28,7 +28,7 @@ public class BackLoginController {
 		if(user != null){
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
-			return "redirect:/background/goIndex.action";
+			return "redirect:/index/goIndex.action";
 		}
 		return null;
 		

@@ -42,9 +42,10 @@ public class UserController {
 
 	@RequestMapping("/goexist.shtml")
 	public String goexist(HttpServletRequest request) {
-		HttpSession session = request.getSession();
-		session.removeAttribute("username");
-		return "index";
+		HttpSession session = request.getSession(false);
+		String username = (String) session.getAttribute("username");
+		session.invalidate();
+		return "login";
 	}
 	
 	@RequestMapping("/login.shtml")

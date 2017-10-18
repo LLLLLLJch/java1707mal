@@ -8,6 +8,7 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/thirdlib/jqury/jquery-1.11.1.js"></script>
 <link href="${ctx}/resources/thirdlib/bootstrap/css/bootstrap.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/resources/thirdlib/hadmin/css/animate.css" rel="stylesheet">
 <script type="text/javascript">
 $(function(){
     $("#categoryStatus  option[value='${category.status}']").prop("selected", true);
@@ -18,7 +19,7 @@ $(function(){
 <body>
 	<%@include file="../common/header.jsp" %>
 	<form action="${ctx}/backgroundCategory/update.action" method="post">
-		<div style="width: 400px; margin: auto;">
+		<div style="width: 400px; margin: auto;" class=" animated fadeInRight">
 			<div style="margin-top: 10px;">
 				<input type="text" name="id" value="${category.id}"
 					readonly="readonly" class="form-control" />

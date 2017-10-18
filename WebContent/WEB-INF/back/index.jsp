@@ -57,9 +57,10 @@
 					<li class="hidden-folded padder m-t m-b-sm text-muted text-xs">
 						<span class="ng-scope">分类</span>
 					</li>
-					<li><a class="J_menuItem" href="index_v1.html"> <i
-							class="fa fa-home"></i> <span class="nav-label">主页</span>
-					</a></li>
+					<li><<a class="J_menuItem" href="${ctx}/index/goHome.action">
+                            <i class="fa fa-home"></i>
+                            <span class="nav-label">主页</span>
+                        </a></li>
 					<li><a href="#"> <i class="fa fa fa-bar-chart-o"></i> <span
 							class="nav-label">商品列表</span> <span class="fa arrow"></span>
 					</a>
@@ -203,7 +204,7 @@
 			</div>
 			<div class="row J_mainContent" id="content-main">
 				<iframe id="J_iframe" width="100%" height="100%"
-					src="index_v1.html?v=4.0" frameborder="0" data-id="index_v1.html"
+					src="${ctx}/index/goHome.action" frameborder="0" data-id="index_v1.html"
 					seamless></iframe>
 			</div>
 		</div>

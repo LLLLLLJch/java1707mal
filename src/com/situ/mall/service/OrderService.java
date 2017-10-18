@@ -23,4 +23,6 @@ public interface OrderService {
 
 	List<Order> findOrder();
 
+	int findAllOrderCount();
+
 }

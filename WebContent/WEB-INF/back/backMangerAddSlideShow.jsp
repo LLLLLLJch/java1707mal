@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>INSPINIA | Dashboard</title>
-
+	<link href="${pageContext.request.contextPath}/resources/thirdlib/hadmin/css/animate.css" rel="stylesheet">
     <link href="${ctx}/resources/thirdlib/H+/css/bootstrap.min.css" rel="stylesheet">
     <link href="${ctx}/resources/thirdlib/H+/css/font-awesome.css" rel="stylesheet">
 
@@ -44,7 +44,7 @@ function uploadPic() {
 </head>
 
 <body>
-            <div class="row  border-bottom white-bg dashboard-header">
+            <div class="row  border-bottom white-bg dashboard-header  animated fadeInRight">
 				<div style="width: 800px">
 			<form action="${ctx}/backgroundslideshow/addSlideShow.action" method="post" enctype="multipart/form-data" class="form form-horizontal" id="form-add">
 			    <div style="margin-top: 10px;">

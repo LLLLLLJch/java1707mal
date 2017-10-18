@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
+<link href="${pageContext.request.contextPath}/resources/thirdlib/hadmin/css/animate.css" rel="stylesheet">
 <script type="text/javascript" 
 	src="${ctx}/resources/thirdlib/jqury/jquery-form.js"></script>
 	<link href="${ctx}/resources/thirdlib/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -53,7 +54,7 @@ function selectSecond(obj) {
 </head>
 <body>
 	<form action="${ctx}/background/update.action" method="post">
-		<div style="width: 400px; margin: auto;">
+		<div style="width: 400px; margin-left:100px;" class=" animated fadeInRight">
 			<div style="margin-top: 10px;">
 				<input type="text" name="id" value="${product.id}"
 					readonly="readonly" class="form-control" />
@@ -106,22 +107,6 @@ function selectSecond(obj) {
 											pattern="yyyy-MM-dd hh:mm:ss"/>"
 					class="form-control" readonly="readonly"/>
 			</div>
-			<div>
-					<label>产品主图</label>
-					 <img alt="" id="imgId" src="/pic/${condition.main_image}" width=100 height=100>
-         			 <input type="hidden" name="main_image" id="mainImage"/>
-         			 <input type="file" name="pictureFile" onchange="uploadPic();"/>
-				</div>
-				<div class="form-group">
-				  	<label>商品图片</label>
-				  	 <a href="javascript:void(0)" class="picFileUpload" id="picFileUpload">上传图片</a>
-	                 <input type="hidden" name="sub_images" id="subImages"/>
-	                 <div id="J_imageView"></div>
-				  </div>
-				  <div class="form-group">
-				  	<label>商品描述</label>
-				  	 <textarea style="width:900px;height:300px;visibility:hidden;" name="detail"></textarea>
-				  </div>
 			<div style="margin-top: 10px; margin-left: 120px;">
 				<input type="submit" class="btn btn-info" value="修改" />
 			</div>

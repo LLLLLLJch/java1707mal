@@ -35,7 +35,7 @@
 	<body>
 		<div class="top_center">
 			<div class="left">
-				<img src="img/LOGO.png" />
+				<a href="${ctx}/index.shtml"><img src="${ctx}/resources/img/LOGO.png" /></a>
 			</div>
 			<div class="right">
 				<ul>

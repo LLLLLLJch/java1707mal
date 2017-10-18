@@ -23,4 +23,6 @@ public interface OrderDao {
 
 	List<Order> findOrder();
 
+	int findAllOrderCount();
+
 }

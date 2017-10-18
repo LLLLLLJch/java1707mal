@@ -16,4 +16,6 @@ public interface UserDao {
 
 	String findUserNameByUsrId(Integer user_id);
 
+	int findAllUserCount();
+
 }

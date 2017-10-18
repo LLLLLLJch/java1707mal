@@ -25,4 +25,8 @@
   		select username from user where id=#{userId}
   	</select>
   	
+  	<select id="findAllUserCount" resultType="int">
+  		select count(*) from user
+  	</select>
+  	
   </mapper>

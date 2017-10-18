@@ -30,7 +30,7 @@
 <link
 	href="${ctx}/resources/thirdlib/kindeditor/themes/default/default.css"
 	type="text/css" rel="stylesheet">
-
+<link href="${pageContext.request.contextPath}/resources/thirdlib/hadmin/css/animate.css" rel="stylesheet">
 
 <script type="text/javascript">
 	$(function() {
@@ -122,7 +122,7 @@
 </head>
 
 <body>
-			<div class="row  border-bottom white-bg dashboard-header">
+			<div class="row  border-bottom white-bg dashboard-header  animated fadeInRight">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-1">

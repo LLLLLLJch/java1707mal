@@ -6,6 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
+<link href="${pageContext.request.contextPath}/resources/thirdlib/hadmin/css/animate.css" rel="stylesheet">
 <link href="${ctx}/resources/thirdlib/bootstrap/css/bootstrap.css" rel="stylesheet">
 <script type="text/javascript">
 function goPage(pageIndex) {

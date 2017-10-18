@@ -22,7 +22,7 @@
 
     <link href="${pageContext.request.contextPath}/resources/thirdlib/H+/css/animate.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/thirdlib/H+/css/style.css" rel="stylesheet">
-
+	 <link href="${pageContext.request.contextPath}/resources/thirdlib/hadmin/css/animate.css" rel="stylesheet">
 	<script type="text/javascript">
 $(function() {
 	$("#status option[value = '${condition.status}']").prop("selected",
@@ -132,7 +132,7 @@ $(function() {
 	<input id="bbb" type="hidden" value=""/>
 	<input id="ccc" type="hidden" value="${selectid}"/>
 	<input id="ddd" type="hidden" value="${secondId}"/>
-            <div class="row  border-bottom white-bg dashboard-header">
+            <div class="row  border-bottom white-bg dashboard-header animated fadeInRight">
 		<div class="row">
 			<div class="col-md-2">
 				<div class="list-group">
@@ -206,8 +206,18 @@ $(function() {
 									value="${product.id}" /></td>
 								<td>${product.id}</td>
 								<td>${product.category.id}</td>
+							<c:if test="${fn:length(product.name)>8 }"> 
+								<td>${fn:substring(product.name,0,8)}...</td>
+							</c:if> 
+							<c:if test="${fn:length(product.name)<=8 }">
 								<td>${product.name}</td>
+							</c:if>
+							<c:if test="${fn:length(product.subtitle)>8 }"> 
+								<td>${fn:substring(product.subtitle,0,8)}...</td>
+							</c:if> 
+							<c:if test="${fn:length(product.subtitle)<=8 }">
 								<td>${product.subtitle}</td>
+							</c:if>
 								<td><img alt="" src="/pic/${product.main_image}" width="80"
 									height="60"></td>
 								<%-- <td>${product.detail}</td> --%>
@@ -223,11 +233,9 @@ $(function() {
 										pattern="yyyy-MM-dd hh:mm:ss" /></td>
 								<td><fmt:formatDate value="${product.update_time}"
 										pattern="yyyy-MM-dd hh:mm:ss" /></td>
-								<%-- <td><a href="javascript:updateStatus(${product.id},${product.status})">上架</a></td> --%>
 								<td><input type="button" class="btn btn-info"
 									value="change"
 									onclick="javascript:updateStatus(${product.id},${product.status});" /></td>
-								<%-- <td><a href="javascript:delProduct(${product.id})">删除</a></td> --%>
 								<td><input type="button" value="删除" onclick="delProduct(${product.id})"/></td> 
 								<td><a
 									href="${pageContext.request.contextPath}/background/toUpdateProduct.action?id=${product.id}&category_id=${secondId}&categoryId=${selectid}">修改</a></td>

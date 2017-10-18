@@ -14,4 +14,6 @@ public interface UserService {
 
 	String findUserNameByUsrId(Integer user_id);
 
+	int findAllUserCount();
+
 }
