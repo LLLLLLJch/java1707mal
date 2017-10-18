@@ -32,7 +32,7 @@ public class LoginFilter implements Filter{
 	       System.out.println("11111111111111111111111111111");
 	       String requestPath = uri.substring(uri.lastIndexOf("/") + 1, uri.length());
 	       if (	 requestPath.equals("checkImg")|| requestPath.equals("login.action")
-	    		   || requestPath.equals("backlogin.jsp")
+	    		   || requestPath.equals("login.jsp")
 	    		   || requestPath.equals("gotoLoginPage.action")) {
 	           //直接放行
 	           chain.doFilter(request, response);

@@ -103,8 +103,10 @@ public class ProductMangerController {
 	
 	
 	
-	
-	
+	@RequestMapping("/goIndex")
+	public String goIndex() {
+		return "index";
+	}
 	
 	@RequestMapping("/findAllCategory")
 	public String findAllCategory(Model model,String pageIndexStr,String pageSizeStr,String id,String status) {

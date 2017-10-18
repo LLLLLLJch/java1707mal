@@ -33,7 +33,6 @@
 	</head>
 
 	<body>
-	<input type="text" value="${relUrl}"/>
 		<div class="top_center">
 			<div class="left">
 				<img src="img/LOGO.png" />

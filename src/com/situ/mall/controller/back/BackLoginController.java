@@ -19,7 +19,7 @@ public class BackLoginController {
 	
 	@RequestMapping("/gotoLoginPage")
 	public String gotoLoginPage() {
-		return "backlogin";
+		return "login";
 		
 	}
 	@RequestMapping("/login")
@@ -28,7 +28,7 @@ public class BackLoginController {
 		if(user != null){
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
-			return "redirect:/background/findAllCategory.action";
+			return "redirect:/background/goIndex.action";
 		}
 		return null;
 		
