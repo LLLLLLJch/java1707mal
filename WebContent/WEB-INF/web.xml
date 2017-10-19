@@ -43,7 +43,12 @@
 		<param-value>classpath:applicationContext.xml</param-value>
 	</context-param>
 
-
+	 <listener>
+      <listener-class>com.situ.mall.listener.OnlineAdminListener</listener-class>
+     </listener>
+	
+	
+	
 	<filter>
 		<filter-name>encoding</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

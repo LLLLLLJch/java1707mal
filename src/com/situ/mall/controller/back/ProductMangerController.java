@@ -8,6 +8,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
+
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,75 +34,6 @@ public class ProductMangerController {
 	
 	@Autowired
 	private ProductMangerService productMangerService;
-	
-
-	/*@RequestMapping("/getIndexPage")
-	public String getIndexPage() {
-		return "redirect:/background/findByCondition.action";
-	}
-
-	@RequestMapping("/findAllProducts")
-	public String findAllProducts(Model model) {
-		List<Product> list = productMangerService.findAllProducts();
-		model.addAttribute("list", list);
-		return "backMangerIndex";
-
-	}
-
-	@RequestMapping("/sort")
-	public String sort() {
-		return "backMangerSort";
-	}
-
-	@RequestMapping("/addCategory")
-	public String addCategory(@RequestBody String name, Model model) {
-		System.out.println(name);
-		Date date = new Date();
-		productMangerService.addCategory(name, date);
-		System.out.println("----------------------------");
-		
-		Category category = productMangerService.findCategoryID(name);
-		model.addAttribute("category", category);
-		 
-		return "backMangerAddCategory";
-
-	}
-
-	@RequestMapping("/getPageBean")
-	public String getPageBean(String pageIndexStr, String pageSizeStr, Model model) {
-		int pageIndex = 1;
-		if (pageIndexStr != null && !pageIndexStr.equals("")) {
-			pageIndex = Integer.parseInt(pageIndexStr);
-		}
-		int pageSize = 3;
-		if (pageSizeStr != null && !pageSizeStr.equals("")) {
-			pageSize = Integer.parseInt(pageSizeStr);
-		}
-		PageBean<Product> pageBean = productMangerService.getPageBean(pageIndex, pageSize);
-		model.addAttribute("pageBean", pageBean);
-		return "backMangerIndex";
-
-	}
-
-	@RequestMapping("/findByCondition")
-	public String findByCondition(String id, String status, String pageIndexStr, String pageSizeStr, Model model) {
-		int pageIndex = 1;
-		if (pageIndexStr != null && !pageIndexStr.equals("")) {
-			pageIndex = Integer.parseInt(pageIndexStr);
-		}
-		int pageSize = 3;
-		if (pageSizeStr != null && !pageSizeStr.equals("")) {
-			pageSize = Integer.parseInt(pageSizeStr);
-		}
-		FindByCondition condition = new FindByCondition(id, status, pageIndex, pageSize);
-		PageBean<Product> pageBean = productMangerService.findByCondition(condition);
-		model.addAttribute("pageBean", pageBean);
-		model.addAttribute("condition", condition);
-		return "backMangerIndex";
-
-	}
-	
-	*/
 
 	
 	@RequestMapping("/findAllCategory")
@@ -214,9 +149,11 @@ public class ProductMangerController {
 	}
 	
 	@RequestMapping("/updateStatus")
-	public String updateStatus(int id,int status){
-		productMangerService.updateStatus(id,status);
-		return "redirect:/background/findAllCategory.action";
+	public SeverResponse updateStatus(int id,int status){
+		System.out.println("++++++++++++++++++"+id);
+		System.out.println("++++++++++++++++++"+status);
+		return productMangerService.updateStatus(id,status);
+		/*return "redirect:/background/findAllCategory.action";*/
 	}
 	
 	@RequestMapping("/update")

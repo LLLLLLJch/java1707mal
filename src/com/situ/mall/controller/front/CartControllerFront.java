@@ -112,15 +112,6 @@ public class CartControllerFront {
 			// 将cookie发送给浏览器
 			response.addCookie(cookie);
 		}
-
-		List<CartItemVO> items = buyCartVO.getItems();
-
-		for (CartItemVO item : items) {
-			Product product = productMangerService.findById(item.getProduct().getId());
-			item.setProduct(product);
-		}
-		model.addAttribute("buyCartVO", buyCartVO);
-
 		return "redirect:/getDetailPage/getDetailNoUserName.shtml";
 	}
 

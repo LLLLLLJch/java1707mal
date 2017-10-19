@@ -1,14 +1,18 @@
 package com.situ.mall.controller.back;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.situ.mall.pojo.User;
 import com.situ.mall.service.UserService;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 
 @Controller
 @RequestMapping("/getBackLogin")
@@ -28,9 +32,17 @@ public class BackLoginController {
 		if(user != null){
 			HttpSession session = request.getSession();
 			session.setAttribute("user", user);
+			List<User> onlineList = (List<User>) request.getServletContext().getAttribute("onlineList");
+			onlineList.add(user);
 			return "redirect:/index/goIndex.action";
 		}
 		return null;
 		
+	}
+	@RequestMapping("/onlineUser")
+	public String onlineUser(HttpServletRequest request,Model model) {
+		List<User> onlineList = (List<User>) request.getServletContext().getAttribute("onlineList");
+		model.addAttribute("onlineList",onlineList);
+		return "olineUser";
 	}
 }

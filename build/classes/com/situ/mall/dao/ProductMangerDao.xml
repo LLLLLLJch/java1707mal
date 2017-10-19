@@ -252,7 +252,7 @@
   	</select>
   	
   	<select id="findTotalCountByName" parameterType="String" resultType="int">
-  		select count(*) from product where name like '%${value}%'
+  		select count(*) from product where name like '%${value}%' and status = 1
   	</select> 
   	
   	<select id="findProductByName" parameterType="Map" resultType="Product">
@@ -262,15 +262,15 @@
   				and name like '%${name}%'
   			</if>
   		</where>
-  		limit #{index},#{pageSize}
+  		and status = 1 limit #{index},#{pageSize}
   	</select>
   	
   	<select id="findTotalCountById" parameterType="int" resultType="int">
-  		select count(*) from product where category_id = #{id}
+  		select count(*) from product where category_id = #{id} and status =1
   	</select>
   	
   	<select id="findProductById" parameterType="Map" resultType="Product">
-  		select * from product where category_id = #{id} limit #{index},#{pageSize}
+  		select * from product where category_id = #{id} and status = 1 limit #{index},#{pageSize}
   	</select>
   	
   </mapper>

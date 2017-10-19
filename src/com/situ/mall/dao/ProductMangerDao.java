@@ -41,7 +41,7 @@ public interface ProductMangerDao {
 
 	int updateStatus(Product product);
 
-	void updateStatus(@Param(value="id")int id, @Param(value="status")int status);
+	int updateStatus(@Param(value="id")int id, @Param(value="status")int status);
 
 	List<Category> findAllCategory();
 

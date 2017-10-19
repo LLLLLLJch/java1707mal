@@ -45,13 +45,26 @@ $(function() {
 	    }
 	}
 
-	 function updateStatus(id,status){
+	/*  function updateStatus(id,status){
 		var isUpdate = confirm("您确认要修改吗？");
 		if(isUpdate){
 			location.href = "${ctx}/background/updateStatus.action?id="
 				+ id +"&&status="+status;
 		}
-	}	 
+	} */	 
+	
+	function updateStatus(id,status){
+		 $.post(
+	               "${ctx}/background/updateStatus.action", //url
+	               {"id":id,"status":status}, //data
+	               function(data) { //callback
+	               },
+	               "json" //type
+	           );
+
+
+	}
+	
 	
 	/* function updateStatus(id,status){
 		 $.ajax({

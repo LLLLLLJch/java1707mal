@@ -12,6 +12,7 @@ import com.situ.mall.common.SeverResponse;
 import com.situ.mall.dao.ProductMangerDao;
 import com.situ.mall.pojo.Category;
 import com.situ.mall.pojo.Product;
+import com.situ.mall.service.IStaticPageService;
 import com.situ.mall.service.ProductMangerService;
 import com.situ.mall.vo.FindByCondition;
 import com.situ.mall.vo.FindProductByName;
@@ -21,6 +22,8 @@ public class ProductMangerServiceImpl implements ProductMangerService{
 
 	@Autowired
 	private ProductMangerDao productMangerDao;
+	@Autowired
+	private IStaticPageService staticPageService;
 	
 	@Override
 	public List<Product> findAllProducts() {
@@ -117,8 +120,27 @@ public class ProductMangerServiceImpl implements ProductMangerService{
 	}
 
 	@Override
-	public void updateStatus(int id, int status) {
+	public SeverResponse updateStatus(int id, int status) {
 		productMangerDao.updateStatus(id,status);
+		Product product = productMangerDao.findProductByIdAddCart(id);
+		if(null == product){
+			return SeverResponse.createError("商品不存在");
+		}
+		if (product.getStatus() == 1) {
+			Map<String, Object> map = new HashMap<String,Object>();
+			map.put("product", product);
+			//通过分割得到subImages
+			String subImagesStr = product.getSub_images();
+			String [] subImages = subImagesStr.split(",");
+			for (int i = 0; i < subImages.length; i++) {
+				subImages[i] = subImages[i];
+			}
+			map.put("subImages", subImages);
+			staticPageService.productIndex(map, id);
+			return SeverResponse.createSuccess("静态化页面成功");
+			
+		} 
+		return null;
 	}
 
 	@Override
