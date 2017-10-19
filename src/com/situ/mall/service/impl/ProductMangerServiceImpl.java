@@ -120,7 +120,7 @@ public class ProductMangerServiceImpl implements ProductMangerService{
 	}
 
 	@Override
-	public SeverResponse updateStatus(int id, int status) {
+	public SeverResponse updateStatus(int id, int status,String username) {
 		productMangerDao.updateStatus(id,status);
 		Product product = productMangerDao.findProductByIdAddCart(id);
 		if(null == product){
@@ -135,7 +135,20 @@ public class ProductMangerServiceImpl implements ProductMangerService{
 			for (int i = 0; i < subImages.length; i++) {
 				subImages[i] = subImages[i];
 			}
+			
+			int parent_id = product.getCategory().getId();
+			Category categorySon  = productMangerDao.findCategoryNameById(parent_id);
+			System.out.println("-------------------"+product);
+			System.out.println("------------------"+parent_id);
+			System.err.println("-----------------"+categorySon);
+			int category_id = categorySon.getParent_id();
+			Category categoryParent = productMangerDao.findCategoryName(category_id);
+			map.put("product", product);
+			System.out.println("-------------------"+product.getDetail());
+			map.put("categorySon", categorySon);
+			map.put("categoryParent", categoryParent);
 			map.put("subImages", subImages);
+			map.put("username", username);
 			staticPageService.productIndex(map, id);
 			return SeverResponse.createSuccess("静态化页面成功");
 			
@@ -255,6 +268,5 @@ public class ProductMangerServiceImpl implements ProductMangerService{
 		pageBean.setList(list);
 		return pageBean;
 	}
-
 	
 }

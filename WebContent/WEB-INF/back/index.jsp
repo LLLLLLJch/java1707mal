@@ -113,6 +113,7 @@
 							class="nav-label">管理员管理</span><span class="fa arrow"></span></a>
 						<ul class="nav nav-second-level">
 							<li><a class="J_menuItem" href="${ctx}/getBackLogin/onlineUser.action">在线人数</a></li></li>
+							<li><a class="J_menuItem" href="${ctx}/getBackLogin/exixt.action">退出</a></li></li>
 				</ul>
 			</div>
 		</nav>

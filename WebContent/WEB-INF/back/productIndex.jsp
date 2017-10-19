@@ -62,8 +62,10 @@ $(function() {
 	            	  if (data.status == 0) {
 	            		  alert(data.msg);
 	            		  window.location.href="${ctx}/background/findAllCategory.action";
-					} else {
-						alert(data.msg);
+					} 
+	               	  if(data.status != 0){
+	               		 alert(data.msg);
+						  window.location.href="${ctx}/background/findAllCategory.action";
 					}
 	               },
 	               "json" //type

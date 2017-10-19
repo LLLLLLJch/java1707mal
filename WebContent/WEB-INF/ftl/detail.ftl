@@ -5,6 +5,7 @@
 		<meta charset="UTF-8">
 		<title>商品详情页</title>
 		<link rel="stylesheet" type="text/css" href="/java1707Mall/resources/css/detail_style.css" />
+		<script type="text/javascript" src="/java1707Mall/resources/thirdlib/jqury/jquery-1.11.1.js"></script>
 		<script type="text/javascript" src="/java1707Mall/resources/thirdlib/layer-v3.1.0/layer/layer.js"></script>
 		<script type="text/javascript">
 			function add(){
@@ -112,6 +113,7 @@
 	</head>
 
 	<body>
+		<input type="hidden" value="${username}" id = "username"/>
 		<!--top-->
 		<div class="top_big">
 			<div class="top_center">
@@ -209,6 +211,10 @@
 		<div class="little_menu_bg">
 			<div class="little_menu">
 				<ul>
+					<li class="little_menu_left">
+						&nbsp;&nbsp;&nbsp;&nbsp;${categoryParent.name}&nbsp;&gt;&nbsp;&nbsp;
+							${categorySon.name}&nbsp;&gt;&nbsp;&nbsp;${product.name}
+					</li>
 					<li class="little_menu_right">
 						华为官方旗舰店
 						<img src="/java1707Mall/resources/img/tou.png" /> 联系供应商

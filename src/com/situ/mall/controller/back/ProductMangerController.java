@@ -150,10 +150,13 @@ public class ProductMangerController {
 	
 	@RequestMapping("/updateStatus")
 	@ResponseBody
-	public SeverResponse updateStatus(int id,int status){
+	public SeverResponse updateStatus(int id,int status,HttpServletRequest request){
 		System.out.println("++++++++++++++++++"+id);
 		System.out.println("++++++++++++++++++"+status);
-		return productMangerService.updateStatus(id,status);
+		HttpSession session = request.getSession();
+		String username = (String) session.getAttribute("username");
+		System.out.println("AAAAAAAAAAAAAAAAAAA"+username);
+		return productMangerService.updateStatus(id,status,username);
 		/*return "redirect:/background/findAllCategory.action";*/
 	}
 	

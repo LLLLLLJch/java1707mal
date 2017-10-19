@@ -38,7 +38,7 @@ public interface ProductMangerService {
 
 	int updateStatus(Product product);
 
-	SeverResponse updateStatus(int id, int status);
+	SeverResponse updateStatus(int id, int status, String username);
 
 	List<Category> findAllCategory();
 
