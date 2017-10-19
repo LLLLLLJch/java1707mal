@@ -149,6 +149,7 @@ public class ProductMangerController {
 	}
 	
 	@RequestMapping("/updateStatus")
+	@ResponseBody
 	public SeverResponse updateStatus(int id,int status){
 		System.out.println("++++++++++++++++++"+id);
 		System.out.println("++++++++++++++++++"+status);

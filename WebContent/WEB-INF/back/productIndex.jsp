@@ -23,6 +23,7 @@
     <link href="${pageContext.request.contextPath}/resources/thirdlib/H+/css/animate.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/resources/thirdlib/H+/css/style.css" rel="stylesheet">
 	 <link href="${pageContext.request.contextPath}/resources/thirdlib/hadmin/css/animate.css" rel="stylesheet">
+	 <script type="text/javascript" src="${pageContext.request.contextPath}/resources/thirdlib/layer-v3.1.0/layer/layer.js"></script>
 	<script type="text/javascript">
 $(function() {
 	$("#status option[value = '${condition.status}']").prop("selected",
@@ -58,6 +59,12 @@ $(function() {
 	               "${ctx}/background/updateStatus.action", //url
 	               {"id":id,"status":status}, //data
 	               function(data) { //callback
+	            	  if (data.status == 0) {
+	            		  alert(data.msg);
+	            		  window.location.href="${ctx}/background/findAllCategory.action";
+					} else {
+						alert(data.msg);
+					}
 	               },
 	               "json" //type
 	           );
