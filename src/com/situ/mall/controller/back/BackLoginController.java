@@ -45,4 +45,14 @@ public class BackLoginController {
 		model.addAttribute("onlineList",onlineList);
 		return "olineUser";
 	}
+	
+	@RequestMapping("/goexixt")
+	public String goexixt(HttpServletRequest request) {
+		HttpSession session = request.getSession(false);
+		if(session != null){
+			User user = (User) session.getAttribute("user");
+			session.invalidate();
+		}
+		return "";
+	}
 }
