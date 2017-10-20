@@ -205,9 +205,7 @@
 										<li>
 											<div class="i-pic limit">
 												<a href="${ctx}/detail.shtml?id=${product.id}"><img src="/pic/${product.main_image}" /></a>											
-												<%-- <a href="${ctx}/resources/html/${product.id}.html"><img src="/pic/${product.main_image}" /></a>	 --%>										
-												<a href="${ctx}/detail.shtml?id=${product.id}"><p class="title fl">${product.name}</p></a>
-												<%-- <a href="${ctx}/resources/html/${product.id}.html"><p class="title fl">${product.name}</p></a> --%>
+												<a href="${ctx}/resources/html/${product.id}.html"><p class="title fl">${product.name}</p></a>
 												<p class="price fl">
 													<b>¥</b>
 													<strong>${product.price}</strong>

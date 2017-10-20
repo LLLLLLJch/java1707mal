@@ -23,8 +23,9 @@ public class OrderServiceImpl implements OrderService{
 		orderDao.addOrder(order);
 	}
 	@Override
-	public List<Order> findAllOrderByUserId(int userId) {
-		return orderDao.findAllOrderByUserId(userId);
+	public List<Order> findAllOrderByUserId(int userId,int pageIndex) {
+		int index = (pageIndex-1)*3;
+		return orderDao.findAllOrderByUserId(userId,index);
 	}
 	@Override
 	public List<String> findOrderNo(int userId) {
@@ -49,6 +50,10 @@ public class OrderServiceImpl implements OrderService{
 	@Override
 	public int findAllOrderCount() {
 		return orderDao.findAllOrderCount();
+	}
+	@Override
+	public List<Order> findLength(int userId) {
+		return orderDao.findLength(userId);
 	}
 
 }

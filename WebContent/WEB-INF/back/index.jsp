@@ -78,7 +78,7 @@
 							<span class="nav-label">分类管理 </span><span
 							class="label label-warning pull-right">16</span></a>
 						<ul class="nav nav-second-level">
-							<li><a class="J_menuItem" href="mailbox.html">分类列表</a></li>
+							<li><a class="J_menuItem" href="${ctx}/backgroundCategory/findCategory.action">分类列表</a></li>
 							<li><a class="J_menuItem"
 								href="${ctx}/backgroundCategory/getAddCategoryPage.action">添加分类</a>
 							</li>

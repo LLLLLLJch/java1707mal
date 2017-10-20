@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
     pageEncoding="utf-8"%>
-    <%@include file="../common/header.jsp" %>
+<%@include file="../common/header.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -122,11 +122,27 @@
 			}
 
 		}
+        
+        function goup(username){
+        	if('${pageIndexStr}' != 1){
+	        	window.location.href="${ctx}/getOrder/gotoUserOrder.shtml?pageIndexStr="+'${pageIndexStr-1}'+"&username="+username;
+        	} else{
+        		alert("到头了宝贝");
+        	}
+        }
+        
+        
+        function godown(username){
+        	if('${pageIndexStr}' != '${length}'){
+	        	window.location.href="${ctx}/getOrder/gotoUserOrder.shtml?pageIndexStr="+'${pageIndexStr+1}'+"&username="+username;
+        	} else{
+        		alert("到头了宝贝");
+        	}
+        }
 	</script>
 
 </head>
 <body>
-
 <header id="pc-header">
 	<div class="pc-header-nav">
 		<div class="pc-header-con">
@@ -310,17 +326,12 @@
 
 				<div class="clearfix" style="padding:30px 20px;">
 					<div class="fr pc-search-g pc-search-gs">
-						<a style="display:none" class="fl " href="#">上一页</a>
-						<a href="#" class="current">1</a>
-						<a href="javascript:;">2</a>
-						<a href="javascript:;">3</a>
-						<a href="javascript:;">4</a>
-						<a href="javascript:;">5</a>
-						<a href="javascript:;">6</a>
-						<a href="javascript:;">7</a>
-						<span class="pc-search-di">…</span>
-						<a href="javascript:;">1088</a>
-						<a title="使用方向键右键也可翻到下一页哦！" class="" href="javascript:;">下一页</a>
+						<a title="使用方向键右键也可翻到上一页哦！" class="" href="javascript:goup(${username});">上一页</a>
+						<c:forEach var="page" begin="1" end="${length}">
+							<a href="${ctx}/getOrder/gotoUserOrder.shtml?pageIndexStr=${page}&username=${username}" class="current">${page}</a>
+						</c:forEach>
+						<%-- <input type="text" id="pageindex" value="${pageIndexStr}"/> --%>
+						<a title="使用方向键右键也可翻到下一页哦！" class="" href="javascript:godown(${username});">下一页</a>
 					</div>
 				</div>
 

@@ -29,8 +29,8 @@
   		select * from `order` where order_no=#{orderNo}
   	</select>
   	
-  	<select id="findAllOrderByUserId" parameterType="int" resultType="Order">
-  		select * from `order` where user_id=#{id}
+  	<select id="findAllOrderByUserId" resultType="Order">
+  		select * from `order` where user_id=#{userId} limit #{index},3
   	</select>
   	
   	<select id="findOrder" resultType="Order">
@@ -39,6 +39,10 @@
   	
   	<select id="findAllOrderCount" resultType="int">
   		select count(*) from `order`
+  	</select>
+  	
+  	<select id="findLength" parameterType="int" resultType="int">
+  		select * from `order` where user_id=#{id}
   	</select>
   	
   </mapper>

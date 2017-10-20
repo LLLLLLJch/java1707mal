@@ -2,8 +2,11 @@ package com.situ.mall.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.situ.mall.pojo.Order;
 import com.situ.mall.pojo.OrderItem;
+import com.sun.org.glassfish.gmbal.ParameterNames;
 
 public interface OrderDao {
 
@@ -11,7 +14,7 @@ public interface OrderDao {
 
 	void addOrder(Order order);
 
-	List<Order> findAllOrderByUserId(int userId);
+	List<Order> findAllOrderByUserId(@Param(value="userId")int userId, @Param(value="index")int index);
 
 	List<String> findOrderNo(int userId);
 
@@ -24,5 +27,7 @@ public interface OrderDao {
 	List<Order> findOrder();
 
 	int findAllOrderCount();
+
+	List<Order> findLength(int userId);
 
 }

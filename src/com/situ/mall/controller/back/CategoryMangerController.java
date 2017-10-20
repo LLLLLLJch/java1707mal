@@ -1,14 +1,17 @@
 package com.situ.mall.controller.back;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.situ.mall.pojo.Category;
 import com.situ.mall.service.CategoryService;
+import com.situ.mall.service.ProductMangerService;
 import com.situ.mall.vo.FindCategoryByCondition;
 import com.situ.mall.vo.PageBean;
 
@@ -18,6 +21,8 @@ public class CategoryMangerController {
 
 	@Autowired
 	private CategoryService categoryService;
+	@Autowired
+	private ProductMangerService productMangerService;
 
 	@RequestMapping("/getAddCategoryPage")
 	public String getAddCategoryPage() {
@@ -88,9 +93,24 @@ public class CategoryMangerController {
 		categoryService.update(category);
 		return "redirect:/backgroundCategory/getPageBean.action";
 	}
+
 	@RequestMapping("/updateStatus")
-	public String updateStatus(int id,int status) {
-		categoryService.updateStatus(id,status);
+	public String updateStatus(int id, int status) {
+		categoryService.updateStatus(id, status);
 		return "redirect:/backgroundCategory/getPageBean.action";
+	}
+
+	@RequestMapping("/findCategory")
+	public String findCategory(Model model) {
+		List<Category> listParent = productMangerService.findCategoryByZero();
+		model.addAttribute("listParent", listParent);
+		return "categoryIndex";
+
+	}
+	@RequestMapping("/findSon")
+	public String findSon(Integer parentId,Model model) {
+		List<Category> listSon = productMangerService.selectSecond(parentId);
+		model.addAttribute("listSon", listSon);
+		return "findSecond";
 	}
 }

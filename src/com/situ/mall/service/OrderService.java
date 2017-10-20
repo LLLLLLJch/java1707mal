@@ -11,7 +11,7 @@ public interface OrderService {
 
 	void addOrder(Order order);
 
-	List<Order> findAllOrderByUserId(int userId);
+	List<Order> findAllOrderByUserId(int userId, int pageIndex);
 
 	List<String> findOrderNo(int userId);
 
@@ -24,5 +24,7 @@ public interface OrderService {
 	List<Order> findOrder();
 
 	int findAllOrderCount();
+
+	List<Order> findLength(int userId);
 
 }

@@ -210,11 +210,24 @@ public class OrderControllerFront {
 	}
 	@RequestMapping("/gotoUserOrder.shtml")
 	//好像有点问题，需要修改
-	public String gotoUserOrder(String username,Model model) {
+	public String gotoUserOrder(String username,Model model,String pageIndexStr) {
+		int pageIndex = 1;
+		if(null != pageIndexStr && !pageIndexStr.equals("")){
+			pageIndex = Integer.parseInt(pageIndexStr);
+		}
 		int userId = userService.findUserIdByUserName(username);
-		List<Order> listOrder = orderService.findAllOrderByUserId(userId);
+		List<Order> listOrderLength = orderService.findLength(userId);
+		List<Order> listOrder = orderService.findAllOrderByUserId(userId,pageIndex);
 		List<OrderItem> listOrderItem = orderItemService.findOrderItemByUserId(userId);
+		int length = 0;
+		if(listOrderLength.size()%3 == 0){
+			length = listOrderLength.size()/3;
+		}else {
+			length = listOrderLength.size()/3+1;
+		}
 		model.addAttribute("listOrder", listOrder);
+		model.addAttribute("length", length);
+		model.addAttribute("pageIndexStr", pageIndexStr);
 		model.addAttribute("listOrderItem", listOrderItem);
 		return "dingdan";
 	}

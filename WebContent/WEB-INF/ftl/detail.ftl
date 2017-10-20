@@ -113,7 +113,9 @@
 	</head>
 
 	<body>
-		<input type="hidden" value="${username}" id = "username"/>
+		<#if "${username}" != null>
+			<input type="hidden" value="${username}" id = "username"/>
+		</#if>
 		<!--top-->
 		<div class="top_big">
 			<div class="top_center">
@@ -122,6 +124,13 @@
 				</div>
 				<div class="right">
 					<ul>
+						<#if "${username}"!=null>
+								<li><a href="/java1707Mall/getLogin/goLogin.shtml" target="_blank">欢迎 : ${username }</a></li>
+								<li><a href="javaScript:goexist();" target="_blank">注销</a></li>
+							<#else>
+								<li><a href="javaScript:goLogin();" target="_blank">请登录</a></li>
+								<li><a href="javaScript:register();" target="_blank">快速注册</a></li>
+						</#if>
 						<li>
 							<a class="collect" href="">我的收藏</a>
 						</li>
