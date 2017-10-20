@@ -126,6 +126,7 @@ public class ProductMangerServiceImpl implements ProductMangerService{
 		if(null == product){
 			return SeverResponse.createError("商品不存在");
 		}
+		//每次当你上架的时候，就开始静态化页面
 		if (product.getStatus() == 1) {
 			Map<String, Object> map = new HashMap<String,Object>();
 			map.put("product", product);
@@ -152,8 +153,9 @@ public class ProductMangerServiceImpl implements ProductMangerService{
 			staticPageService.productIndex(map, id);
 			return SeverResponse.createSuccess("静态化页面成功");
 			
-		} 
-		return null;
+		}
+		//提示下架成功
+		return SeverResponse.createSuccess("下架成功");
 	}
 
 	@Override

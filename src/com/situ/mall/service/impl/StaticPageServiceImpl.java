@@ -19,7 +19,6 @@ import com.situ.mall.service.IStaticPageService;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-import sun.print.resources.serviceui;
 
 @Service
 public class StaticPageServiceImpl implements IStaticPageService, ServletContextAware {
@@ -40,6 +39,7 @@ public class StaticPageServiceImpl implements IStaticPageService, ServletContext
 		Configuration configuration = freeMarkerConfigurer.getConfiguration();
 		Template template = null;
 		try {
+			//以UTF-8的形式把模板读到内存里面
 			template = configuration.getTemplate("detail.ftl");
 		} catch (IOException e) {
 			e.printStackTrace();
