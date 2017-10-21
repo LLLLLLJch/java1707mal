@@ -98,7 +98,7 @@
 			function goexist(){
 				var isExist = confirm("你确定要退出吗？");
 				if (isExist) {
-					location.href = "${ctx}/getLogin/goLogin.shtml"
+					location.href = "${ctx}/getLogin/goexist.shtml"
 				}
 
 			}

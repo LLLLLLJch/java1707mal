@@ -21,13 +21,13 @@
 		<script type="text/javascript" src="${ctx}/resources/js/jquery-1.7.min.js"></script>
 		<script type="text/javascript" src="${ctx}/resources/js/script.js"></script>
 		<script type="text/javascript">
-			function goexist(){
-				var isExist = confirm("你确定要退出吗？");
-				if (isExist) {
-					location.href = "${ctx}/getLogin/goexist.shtml"
-				}
-
+		function goexist(){
+			var isExist = confirm("你确定要退出吗？");
+			if (isExist) {
+				location.href = "${ctx}/getLogin/goexist.shtml"
 			}
+
+		}
 			
 			function gopage(pageIndex){
 				$("#pageIndex").val(pageIndex);

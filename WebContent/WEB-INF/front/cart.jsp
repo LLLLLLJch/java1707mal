@@ -239,7 +239,7 @@
 					</div>
 					<div class="car_con_2"></div>
 					<div class="car_con_3">
-						<p class="p_title">${cart.product.name}</p>
+						<p class="p_title"><a href="${ctx}/detail.shtml?id=${cart.product.id}">${cart.product.name}</a></p>
 						<img src="${ctx}/resources/img/160.png" />
 						<p class="p_seven">&nbsp;支持7天无理由退货</p>
 						<img src="${ctx}/resources/img/161.png" />

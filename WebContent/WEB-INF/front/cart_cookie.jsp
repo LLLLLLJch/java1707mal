@@ -240,7 +240,7 @@
 						<img src="${cartItemVO.product.fullUrl}" width="80" height="100" />
 					</div>
 					<div class="car_con_3">
-						<p class="p_title">${cartItemVO.product.name}</p>
+						<p class="p_title"><a href="${ctx}/detail.shtml?id=${cartItemVO.product.id}">${cartItemVO.product.name}</a></p>
 						<img src="${ctx}/resources//img/160.png" />
 						<p class="p_seven">&nbsp;支持7天无理由退货</p>
 						<img src="${ctx}/resources//img/161.png" />
