@@ -89,6 +89,7 @@
              <div class="clearfix">
              <div class="t_Record">
                <div id="main" style="height:300px; overflow:hidden; width:100%; overflow:auto" ></div>     
+               		
               </div> 
          <div class="news_style">
           <div class="title_name">最新消息</div>

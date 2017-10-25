@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.situ.mall.pojo.Category;
+import com.situ.mall.pojo.Product;
 import com.situ.mall.service.CategoryService;
 import com.situ.mall.service.ProductMangerService;
 import com.situ.mall.vo.FindCategoryByCondition;

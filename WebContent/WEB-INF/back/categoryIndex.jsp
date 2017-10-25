@@ -38,7 +38,7 @@
 	function findSon(id){
 		layer.open({
   	      type: 2,
-  	      title: '订单详情。',
+  	      title: '分类详情。',
   	      shadeClose: true,
   	      shade: false,
   	      maxmin: true, //开启最大化最小化按钮
@@ -48,8 +48,8 @@
 	}
 </script>
 </head>
-<body>
-	<div class="row  border-bottom white-bg dashboard-header animated fadeInRight">
+<body>·
+	<div class="border-bottom white-bg dashboard-header animated fadeInRigh">
 		<table class="align-center table  table-bordered table-hover table-condensed">
 			<tr>
 				<td>分类名称</td>

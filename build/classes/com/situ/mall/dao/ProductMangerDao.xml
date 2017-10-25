@@ -33,6 +33,7 @@
   		<result column="name" property="name"/>
   		<result column="subtitle" property="subtitle"/>
   		<result column="main_image" property="main_image"/>
+  		<result column="detail" property="detail"/>
   		<result column="price" property="price"/>
   		<result column="stock" property="stock"/>
   		<result column="status" property="status"/>
@@ -45,7 +46,7 @@
   		</association>
   	</resultMap>
   	<select id="findById" resultMap="findProductById">
-  		SELECT c.id AS 'category',c.name as 'category_name',a.id AS 'parent',p.id,p.name,p.subtitle,p.main_image,p.price,p.stock,p.create_time,p.update_time
+  		SELECT c.id AS 'category',c.name as 'category_name',a.id AS 'parent',p.id,p.name,p.subtitle,p.main_image,p.detail,p.price,p.stock,p.create_time,p.update_time
 		FROM category AS c INNER JOIN category AS a 
 		ON c.id=a.parent_id RIGHT JOIN product AS p 
 		ON p.category_id=a.id WHERE p.id=#{id}
